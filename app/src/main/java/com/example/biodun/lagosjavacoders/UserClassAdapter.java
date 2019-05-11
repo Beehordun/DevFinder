@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.biodun.lagosjavacoders.model.User;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -16,15 +17,15 @@ import java.util.ArrayList;
 /**
  * Created by Biodun on 3/8/2017.
  */
-public class UserClassAdapter extends ArrayAdapter<UserClass> {
+public class UserClassAdapter extends ArrayAdapter<User> {
 
-    ArrayList<UserClass> userClass;
+    ArrayList<User> user;
     Context context;
     int resource;
 
-    public UserClassAdapter(Context context, int resource, ArrayList<UserClass> userClass) {
-        super(context, resource, userClass);
-        this.userClass=userClass;
+    public UserClassAdapter(Context context, int resource, ArrayList<User> user) {
+        super(context, resource, user);
+        this.user = user;
         this.context=context;
         this.resource=resource;
     }
@@ -33,14 +34,14 @@ public class UserClassAdapter extends ArrayAdapter<UserClass> {
     @Override
     public View getView(int position,View convertView,ViewGroup parent){
 
-        if (convertView==null){
+        if (convertView == null) {
 
             LayoutInflater layoutInflater=(LayoutInflater) getContext().getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView=layoutInflater.inflate(R.layout.custom_list,null,true);
         }
-        UserClass users=getItem(position);
+        User users = getItem(position);
 
-        ImageView imageView=(ImageView) convertView.findViewById(R.id.avatarId);
+        ImageView imageView = convertView.findViewById(R.id.avatarId);
         Picasso.with(context).load(users.getAvatarUrl()).placeholder(R.drawable.images).resize(80,80).into(imageView);
 
         TextView textView=(TextView) convertView.findViewById(R.id.user_textView);

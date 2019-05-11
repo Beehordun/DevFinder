@@ -1,0 +1,77 @@
+ext {
+    daggerVersion = "2.21"
+    robolectricVersion = "4.2.1"
+    espressoVersion = "3.0.1"
+    rulesVersion = "1.0.1"
+    supportLibVersion = "27.1.1"
+    retrofitVersion = "2.4.0"
+    okhttpVersion = "3.11.0"
+    ankoVersion = "0.10.5"
+    roomVersion = "2.1.0-alpha07"
+
+    libs = [
+            timber: "com.jakewharton.timber:timber:4.7.1",
+
+            dagger: "com.google.dagger:dagger:$rootProject.daggerVersion",
+            daggerCompiler: "com.google.dagger:dagger-compiler:$rootProject.daggerVersion",
+            jsrAnnotation: "javax.annotation:jsr250-api:1.0",
+
+
+            junit: "junit:junit:4.12",
+
+            robolectric: "org.robolectric:robolectric:$rootProject.robolectricVersion",
+
+            espressoIntents: "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion",
+            espressoCore: "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion",
+            espressoContrib: "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion",
+            testRunner: "com.android.support.test:runner:$rootProject.rulesVersion",
+            testRules: "com.android.support.test:rules:$rootProject.rulesVersion",
+
+            appcompatV7: "com.android.support:appcompat-v7:$rootProject.supportLibVersion",
+            design: "com.android.support:design:$rootProject.supportLibVersion",
+            supportV4: "com.android.support:support-v4:$rootProject.supportLibVersion",
+
+            recyclerviewV7: "com.android.support:recyclerview-v7:$rootProject.supportLibVersion",
+
+            cardviewV7: "com.android.support:cardview-v7:$rootProject.supportLibVersion",
+
+            retrofit: "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion",
+
+            okhttp: "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion",
+            loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion",
+            okhttpUrlConnection: "com.squareup.okhttp3:okhttp-urlconnection:$rootProject.okhttpVersion",
+
+            // JSON parsing
+            gson: 'com.google.code.gson:gson:2.8.2',
+            gsonConverter: "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion",
+
+            // Events
+            eventbus: 'org.greenrobot:eventbus:3.1.1',
+
+            // Kotlin
+            kotlinStdlibJdk7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion",
+            ankoCommon: "org.jetbrains.anko:anko-common:$rootProject.ankoVersion",
+            ankoAppcompatV7: "org.jetbrains.anko:anko-appcompat-v7:$rootProject.ankoVersion",
+            ankoSdk19: "org.jetbrains.anko:anko-sdk19:$rootProject.ankoVersion",
+
+            // RxJava
+            rxjava: 'io.reactivex.rxjava2:rxjava:2.1.13',
+            rxandroid: 'io.reactivex.rxjava2:rxandroid:2.0.2',
+            rxbindingKotlin: 'com.jakewharton.rxbinding2:rxbinding-kotlin:2.0.0',
+
+            // Constraint Layout
+            constraintLayout: 'com.android.support.constraint:constraint-layout:1.1.3',
+
+            // Mocking
+            mockitoCore: "org.mockito:mockito-core:2.21.0",
+            mockitoKotlin: "com.nhaarman:mockito-kotlin:1.6.0",
+
+            // Mockito
+            mockitoAndroid: 'org.mockito:mockito-android:2.8.9',
+
+            //Room Database
+            room: "androidx.room:room-runtime:$rootProject.roomVersion",
+            roomCompiler: "androidx.room:room-compiler:$roomVersion",
+            roomRxJava: "androidx.room:room-rxjava2:$roomVersion",
+    ]
+}

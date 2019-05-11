@@ -24,12 +24,7 @@ public class UserDetails extends AppCompatActivity {
 
         setContentView(R.layout.activity_user_details);
 
-
-       updateUi();
-
-
-
-
+        updateUi();
     }
 
     public void shareUrl(View view){

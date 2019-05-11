@@ -16,6 +16,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.biodun.lagosjavacoders.model.User;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,19 +33,17 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
     ProgressBar progress;
-    ArrayList<UserClass> arrayList;
+    ArrayList<User> arrayList;
     ListView listForMainActivity;
 
     private static final String GITHUB_URL =
-            "https://api.github.com/search/users?q=location:Lagos+language:Java?access_token=<7ce598bc56229ea4c1cc3663c497a48b57791e66>";
+            "https://api.github.com/search/users?q=location:Lagos+language:Kotlin?access_token=<7ce598bc56229ea4c1cc3663c497a48b57791e66>";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         arrayList =new ArrayList<>();
-
-
         listForMainActivity=(ListView) findViewById(R.id.listView);
 
         //Listener for the list to listen to click and launch another activity  using explicit intent
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                                     long id) {
                 Object o = listForMainActivity.getItemAtPosition(position);
 
-                UserClass user = (UserClass) o;
+                User user = (User) o;
 
                 Intent intent = new Intent(MainActivity.this, UserDetails.class);
                 intent.putExtra("userId", user.getUserName());
@@ -69,14 +69,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         //Start the asynchronous task of fetching data from  github if there is connection
            isThereConnection();
-
     }
 
-
-
-
-    public Loader<String> onCreateLoader(int id ,Bundle args){
-
+    public Loader<String> onCreateLoader(int id, Bundle args) {
         return new HttpTaskLoader(MainActivity.this);
     }
 
@@ -88,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         String git=(String) o;
         getUserInfoFromJson(git);
         setListAdapter();
-
     }
 
     @Override
@@ -96,145 +90,43 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     }
 
-
-
-
-
     //parse the Json String and populate the arrayList accordingly
-    private void getUserInfoFromJson(String gitHubJson){
-        try{
-            JSONObject root=new JSONObject(gitHubJson);
-            JSONArray items=root.getJSONArray("items");
-            for (int i=0;i<items.length();i++){
-                JSONObject eachUser=items.getJSONObject(i);
-                arrayList.add(new UserClass(eachUser.getString("login"),eachUser.getString("avatar_url"),
-                        eachUser.getString("html_url") ));
+    private void getUserInfoFromJson(String gitHubJson) {
+        try {
+            JSONObject root = new JSONObject(gitHubJson);
+            JSONArray items = root.getJSONArray("items");
 
+            for (int i = 0; i < items.length(); i++) {
+                JSONObject eachUser = items.getJSONObject(i);
+                arrayList.add(new User( i,
+                        eachUser.getString("login"),
+                        eachUser.getString("avatar_url"),
+                        eachUser.getString("html_url")));
             }
-
-
-        }catch(JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
-
-
-
     }
 
     //Bind the arrayList  to the listForMainActivity using the custom UserClassAdapter class
-    private void setListAdapter(){
-
+    private void setListAdapter() {
         UserClassAdapter adapter=new UserClassAdapter(getApplicationContext(),R.layout.custom_list,arrayList);
         listForMainActivity.setAdapter(adapter);
-
-
     }
 
-    public void isThereConnection(){
-
+    public void isThereConnection() {
         ConnectivityManager connection=(ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo=connection.getActiveNetworkInfo();
-        if(networkInfo!=null && networkInfo.isConnected()){
-
+        if (networkInfo!=null && networkInfo.isConnected()) {
             getLoaderManager().initLoader(1,null,this).forceLoad();
-             progress=(ProgressBar) findViewById(R.id.progress);
+
+            progress=(ProgressBar) findViewById(R.id.progress);
             progress.setIndeterminate(true);
             progress.setVisibility(View.VISIBLE);
         }
-        else{
-
+        else {
             TextView noConnectionState=(TextView) findViewById(R.id.noConnectionState);
             noConnectionState.setText("No Internet Connection");
         }
-
-
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
