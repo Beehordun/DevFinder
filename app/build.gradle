@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion 28
@@ -23,13 +24,16 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    testImplementation 'junit:junit:4.12'
+    implementation rootProject.libs.constraintLayout
+    testImplementation rootProject.libs.junit
 
     // Design library
-    implementation rootProject.libs.appcompatV7
+    implementation rootProject.libs.appcompat
     implementation rootProject.libs.design
     implementation rootProject.libs.supportV4
+    implementation rootProject.libs.recyclerview
+    implementation rootProject.libs.cardview
+
 
     // Kotlin
     implementation rootProject.libs.kotlinStdlibJdk7
@@ -38,17 +42,17 @@ dependencies {
     implementation rootProject.libs.ankoSdk19
 
     // Okhttp
-    api rootProject.libs.okhttp
-    api rootProject.libs.loggingInterceptor
-    api rootProject.libs.okhttpUrlConnection
+    implementation rootProject.libs.okhttp
+    implementation rootProject.libs.loggingInterceptor
+    implementation rootProject.libs.okhttpUrlConnection
 
     // JSON parsing
-    api rootProject.libs.gson
-    api rootProject.libs.gsonConverter
+    implementation rootProject.libs.gson
+    implementation rootProject.libs.gsonConverter
 
     //Image
-    implementation 'com.squareup.picasso:picasso:2.5.2'
-    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation rootProject.libs.picasso
+    implementation rootProject.libs.circularImage
 
     //Dagger
     implementation rootProject.libs.dagger
@@ -62,4 +66,13 @@ dependencies {
     implementation rootProject.libs.room
     kapt rootProject.libs.roomCompiler
     implementation rootProject.libs.roomRxJava
+
+    //RxJava
+    implementation rootProject.libs.rxJava
+    implementation rootProject.libs.rxAndroid
+    implementation rootProject.libs.rxJavaRetrofitAdapter
+
+    //Navigation
+    implementation rootProject.libs.navigationFragment
+    implementation rootProject.libs.navigationUi
 }
