@@ -1,2 +1,12 @@
 # LagosJavaCoders
-An android app that uses the GitHub API to connect users to Java Developers in Lagos
+A simple Android app that makes a request to GitHub Api.
+
+## Architecture
+The app uses the **MVP** architecture
+
+## Libraries
+The app uses the following libraries:
+- Dagger2
+- Room
+- RxJava 
+- Navigation Component
