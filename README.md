@@ -1,4 +1,4 @@
-# LagosJavaCoders
+# DevFinder
 A simple Android app that makes a request to GitHub Api.
 
 ## Architecture
