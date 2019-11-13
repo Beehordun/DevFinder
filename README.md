@@ -6,6 +6,7 @@ The app uses the **MVP** architecture
 
 ## Libraries
 The app uses the following libraries:
+- EventBus
 - Dagger2
 - Room
 - RxJava 
