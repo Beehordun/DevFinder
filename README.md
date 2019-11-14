@@ -1,5 +1,5 @@
 # DevFinder
-A simple Android app that makes a request to GitHub Api.
+An Android app that makes a request to GitHub Api.
 
 ## Architecture
 The app uses the **MVP** architectural pattern
