@@ -15,7 +15,6 @@ class UserService @Inject constructor(
     private var networkRequestDisposable: Disposable? = null
 
     fun getUsers() {
-        println("Called User Service")
         userRepository.getObservableUser()
     }
 
@@ -28,10 +27,8 @@ class UserService @Inject constructor(
 
     private fun handleLoadUserSuccessful(users: UserList) {
         if (isDatabaseEmpty()) {
-            println("Called insert")
             userRepository.insertUsers(users.users)
         } else {
-            println("Called update")
             userRepository.updateUsers(users.users)
         }
     }

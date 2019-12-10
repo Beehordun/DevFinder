@@ -1,6 +1,5 @@
 package com.example.biodun.devfinder.features.user.userDetail
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -50,7 +49,7 @@ class UserDetailFragment : BaseFragment() {
                 .into(userAvatar)
 
         shareButton.setOnClickListener {
-            val message = "Check out this awesome developer @ " + args + " " + userHtml.text
+            val message = getString(R.string.linkMessage, userHtml.text)
             val intents = Intent(Intent.ACTION_SEND)
 
             intents.type = "text/plain"

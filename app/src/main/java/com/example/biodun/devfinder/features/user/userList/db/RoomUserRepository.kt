@@ -10,6 +10,7 @@ import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
 private const val TAG = "RoomUserRepository"
+
 class RoomUserRepository @Inject constructor(
         private val bus: EventBus,
         private val database: UserRoomDatabase
@@ -21,7 +22,6 @@ class RoomUserRepository @Inject constructor(
     }
 
     override fun getObservableUser() {
-        println("Called Observable")
         database.userListDao()
                 .getUsers()
                 .subscribeOn(Schedulers.io())
@@ -34,7 +34,6 @@ class RoomUserRepository @Inject constructor(
     }
 
     private fun handleGetObservableUserSuccess(users: List<User>) {
-        println("Called Bus")
         bus.post(UserListReceivedEvent(users))
     }
 

@@ -14,7 +14,6 @@ abstract class BaseActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         performInjection()
-
         super.onCreate(savedInstanceState)
     }
 

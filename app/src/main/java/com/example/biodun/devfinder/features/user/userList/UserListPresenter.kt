@@ -37,7 +37,6 @@ class UserListPresenter @Inject constructor(
 
     @Subscribe
     fun onUserListReceivedEvent(event: UserListReceivedEvent) {
-        println("Event received")
         mvpView?.configureRecyclerView(event.users)
     }
 }
