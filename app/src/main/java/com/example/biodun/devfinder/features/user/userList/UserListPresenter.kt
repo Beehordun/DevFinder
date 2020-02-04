@@ -27,7 +27,7 @@ class UserListPresenter @Inject constructor(
         bus.unregister(this)
     }
 
-    fun cancelNetworkRequest() {
+    fun cancelNetworkSubscriptions() {
         userService.disposeSubscription()
     }
 

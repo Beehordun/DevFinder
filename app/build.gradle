@@ -34,7 +34,6 @@ dependencies {
     implementation rootProject.libs.recyclerview
     implementation rootProject.libs.cardview
 
-
     // Kotlin
     implementation rootProject.libs.kotlinStdlibJdk7
     implementation rootProject.libs.ankoCommon
@@ -75,4 +74,9 @@ dependencies {
     //Navigation
     implementation rootProject.libs.navigationFragment
     implementation rootProject.libs.navigationUi
+
+    // Test dependencies
+    testImplementation rootProject.libs.junit
+    testImplementation rootProject.libs.mockitoCore
+    testImplementation rootProject.libs.mockitoKotlin
 }

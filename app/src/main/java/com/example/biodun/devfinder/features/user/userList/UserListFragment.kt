@@ -60,7 +60,7 @@ class UserListFragment : BaseFragment(), UserListView {
     }
 
     override fun onDestroyView() {
-        presenter.cancelNetworkRequest()
+        presenter.cancelNetworkSubscriptions()
         super.onDestroyView()
     }
 
